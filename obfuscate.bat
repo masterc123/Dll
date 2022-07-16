@@ -1,0 +1,1 @@
+dotnet "IronBrew2 CLI.dll" "test.txt" "Normal" "Hide" "Hide"
