@@ -254,6 +254,17 @@
         <member name="M:CefSharp.WinForms.ChromiumWebBrowser.Load(System.String)">
             <inheritdoc/>
         </member>
+        <member name="M:CefSharp.WinForms.ChromiumWebBrowser.CaptureScreenshotAsync(CefSharp.DevTools.Page.CaptureScreenshotFormat,System.Nullable{System.Int32},CefSharp.DevTools.Page.Viewport,System.Boolean,System.Boolean)">
+            <summary>
+            Capture page screenshot.
+            </summary>
+            <param name="format">Image compression format (defaults to png).</param>
+            <param name="quality">Compression quality from range [0..100] (jpeg only).</param>
+            <param name="viewPort">Capture the screenshot of a given region only.</param>
+            <param name="fromSurface">Capture the screenshot from the surface, rather than the view. Defaults to true.</param>
+            <param name="captureBeyondViewport">Capture the screenshot beyond the viewport. Defaults to false.</param>
+            <returns>A task that can be awaited to obtain the screenshot as a byte[].</returns>
+        </member>
         <member name="P:CefSharp.WinForms.ChromiumWebBrowser.JavascriptObjectRepository">
             <summary>
             The javascript object repository, one repository per ChromiumWebBrowser instance.
@@ -596,6 +607,11 @@
             </summary>
             <value><c>true</c> if this instance has parent; otherwise, <c>false</c>.</value>
         </member>
+        <member name="P:CefSharp.WinForms.ChromiumWebBrowser.CefSharp#Internals#IWebBrowserInternal#DevToolsContext">
+            <summary>
+            Used by CefSharp.Puppeteer to associate a single DevToolsContext with a ChromiumWebBrowser instance.
+            </summary>
+        </member>
         <member name="P:CefSharp.WinForms.ChromiumWebBrowser.CefSharp#Internals#IWebBrowserInternal#BrowserAdapter">
             <summary>
             Gets the browser adapter.
@@ -614,10 +630,16 @@
         <member name="M:CefSharp.WinForms.ChromiumWebBrowser.LoadUrlAsync(System.String)">
             <inheritdoc/>
         </member>
+        <member name="M:CefSharp.WinForms.ChromiumWebBrowser.WaitForNavigationAsync(System.Nullable{System.TimeSpan},System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
         <member name="M:CefSharp.WinForms.ChromiumWebBrowser.WaitForInitialLoadAsync">
             <inheritdoc/>
         </member>
         <member name="M:CefSharp.WinForms.ChromiumWebBrowser.TryGetBrowserCoreById(System.Int32,CefSharp.IBrowser@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CefSharp.WinForms.ChromiumWebBrowser.GetContentSizeAsync">
             <inheritdoc/>
         </member>
         <member name="M:CefSharp.WinForms.ChromiumWebBrowser.OnAfterBrowserCreated(CefSharp.IBrowser)">
@@ -1178,6 +1200,9 @@
             <param name="url">The URL to be loaded.</param>
         </member>
         <member name="M:CefSharp.WinForms.Host.ChromiumHostControl.LoadUrlAsync(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CefSharp.WinForms.Host.ChromiumHostControl.WaitForNavigationAsync(System.Nullable{System.TimeSpan},System.Threading.CancellationToken)">
             <inheritdoc/>
         </member>
         <member name="M:CefSharp.WinForms.Host.ChromiumHostControl.GetMainFrame">

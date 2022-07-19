@@ -305,11 +305,10 @@
             The methods of this class will be called on the CEF UI thread.
             </summary>
         </member>
-        <member name="M:CefSharp.Callback.IRunFileDialogCallback.OnFileDialogDismissed(System.Int32,System.Collections.Generic.IList{System.String})">
+        <member name="M:CefSharp.Callback.IRunFileDialogCallback.OnFileDialogDismissed(System.Collections.Generic.IList{System.String})">
             <summary>
             Called asynchronously after the file dialog is dismissed.
             </summary>
-            <param name="selectedAcceptFilter">is the 0-based index of the value selected from the accept filters array passed to IBrowserHost.RunFileDialog</param>
             <param name="filePaths">will be a single value or a list of values depending on the dialog mode. If the selection was cancelled filePaths will be empty</param>
         </member>
         <member name="T:CefSharp.Callback.NoOpCompletionCallback">
@@ -358,12 +357,10 @@
             Callback interface for asynchronous continuation of file dialog requests.
             </summary>
         </member>
-        <member name="M:CefSharp.IFileDialogCallback.Continue(System.Int32,System.Collections.Generic.List{System.String})">
+        <member name="M:CefSharp.IFileDialogCallback.Continue(System.Collections.Generic.List{System.String})">
             <summary>
             Continue the file selection.
             </summary>
-            <param name="selectedAcceptFilter">should be the 0-based index of the value selected from the accept filters
-            array passed to <see cref="M:CefSharp.IDialogHandler.OnFileDialog(CefSharp.IWebBrowser,CefSharp.IBrowser,CefSharp.CefFileDialogMode,CefSharp.CefFileDialogFlags,System.String,System.String,System.Collections.Generic.List{System.String},System.Int32,CefSharp.IFileDialogCallback)"/></param>
             <param name="filePaths">should be a single value or a list of values depending on the dialog mode.
             An empty value is treated the same as calling Cancel().</param>
         </member>
@@ -2315,12 +2312,11 @@
             <param name = "fetchRelatives">Whether to fetch this nodes ancestors, siblings and children. Defaults to true.</param>
             <returns>returns System.Threading.Tasks.Task&lt;GetPartialAXTreeResponse&gt;</returns>
         </member>
-        <member name="M:CefSharp.DevTools.Accessibility.AccessibilityClient.GetFullAXTreeAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.String)">
+        <member name="M:CefSharp.DevTools.Accessibility.AccessibilityClient.GetFullAXTreeAsync(System.Nullable{System.Int32},System.String)">
             <summary>
             Fetches the entire accessibility tree for the root Document
             </summary>
             <param name = "depth">The maximum depth at which descendants of the root node should be retrieved.If omitted, the full tree is returned.</param>
-            <param name = "max_depth">Deprecated. This parameter has been renamed to `depth`. If depth is not provided, max_depth will be used.</param>
             <param name = "frameId">The frame for whose document the AX tree should be retrieved.If omited, the root frame is used.</param>
             <returns>returns System.Threading.Tasks.Task&lt;GetFullAXTreeResponse&gt;</returns>
         </member>
@@ -2734,109 +2730,114 @@
             FrameId
             </summary>
         </member>
-        <member name="T:CefSharp.DevTools.Audits.SameSiteCookieExclusionReason">
+        <member name="T:CefSharp.DevTools.Audits.CookieExclusionReason">
             <summary>
-            SameSiteCookieExclusionReason
+            CookieExclusionReason
             </summary>
         </member>
-        <member name="F:CefSharp.DevTools.Audits.SameSiteCookieExclusionReason.ExcludeSameSiteUnspecifiedTreatedAsLax">
+        <member name="F:CefSharp.DevTools.Audits.CookieExclusionReason.ExcludeSameSiteUnspecifiedTreatedAsLax">
             <summary>
             ExcludeSameSiteUnspecifiedTreatedAsLax
             </summary>
         </member>
-        <member name="F:CefSharp.DevTools.Audits.SameSiteCookieExclusionReason.ExcludeSameSiteNoneInsecure">
+        <member name="F:CefSharp.DevTools.Audits.CookieExclusionReason.ExcludeSameSiteNoneInsecure">
             <summary>
             ExcludeSameSiteNoneInsecure
             </summary>
         </member>
-        <member name="F:CefSharp.DevTools.Audits.SameSiteCookieExclusionReason.ExcludeSameSiteLax">
+        <member name="F:CefSharp.DevTools.Audits.CookieExclusionReason.ExcludeSameSiteLax">
             <summary>
             ExcludeSameSiteLax
             </summary>
         </member>
-        <member name="F:CefSharp.DevTools.Audits.SameSiteCookieExclusionReason.ExcludeSameSiteStrict">
+        <member name="F:CefSharp.DevTools.Audits.CookieExclusionReason.ExcludeSameSiteStrict">
             <summary>
             ExcludeSameSiteStrict
             </summary>
         </member>
-        <member name="F:CefSharp.DevTools.Audits.SameSiteCookieExclusionReason.ExcludeInvalidSameParty">
+        <member name="F:CefSharp.DevTools.Audits.CookieExclusionReason.ExcludeInvalidSameParty">
             <summary>
             ExcludeInvalidSameParty
             </summary>
         </member>
-        <member name="F:CefSharp.DevTools.Audits.SameSiteCookieExclusionReason.ExcludeSamePartyCrossPartyContext">
+        <member name="F:CefSharp.DevTools.Audits.CookieExclusionReason.ExcludeSamePartyCrossPartyContext">
             <summary>
             ExcludeSamePartyCrossPartyContext
             </summary>
         </member>
-        <member name="T:CefSharp.DevTools.Audits.SameSiteCookieWarningReason">
+        <member name="T:CefSharp.DevTools.Audits.CookieWarningReason">
             <summary>
-            SameSiteCookieWarningReason
+            CookieWarningReason
             </summary>
         </member>
-        <member name="F:CefSharp.DevTools.Audits.SameSiteCookieWarningReason.WarnSameSiteUnspecifiedCrossSiteContext">
+        <member name="F:CefSharp.DevTools.Audits.CookieWarningReason.WarnSameSiteUnspecifiedCrossSiteContext">
             <summary>
             WarnSameSiteUnspecifiedCrossSiteContext
             </summary>
         </member>
-        <member name="F:CefSharp.DevTools.Audits.SameSiteCookieWarningReason.WarnSameSiteNoneInsecure">
+        <member name="F:CefSharp.DevTools.Audits.CookieWarningReason.WarnSameSiteNoneInsecure">
             <summary>
             WarnSameSiteNoneInsecure
             </summary>
         </member>
-        <member name="F:CefSharp.DevTools.Audits.SameSiteCookieWarningReason.WarnSameSiteUnspecifiedLaxAllowUnsafe">
+        <member name="F:CefSharp.DevTools.Audits.CookieWarningReason.WarnSameSiteUnspecifiedLaxAllowUnsafe">
             <summary>
             WarnSameSiteUnspecifiedLaxAllowUnsafe
             </summary>
         </member>
-        <member name="F:CefSharp.DevTools.Audits.SameSiteCookieWarningReason.WarnSameSiteStrictLaxDowngradeStrict">
+        <member name="F:CefSharp.DevTools.Audits.CookieWarningReason.WarnSameSiteStrictLaxDowngradeStrict">
             <summary>
             WarnSameSiteStrictLaxDowngradeStrict
             </summary>
         </member>
-        <member name="F:CefSharp.DevTools.Audits.SameSiteCookieWarningReason.WarnSameSiteStrictCrossDowngradeStrict">
+        <member name="F:CefSharp.DevTools.Audits.CookieWarningReason.WarnSameSiteStrictCrossDowngradeStrict">
             <summary>
             WarnSameSiteStrictCrossDowngradeStrict
             </summary>
         </member>
-        <member name="F:CefSharp.DevTools.Audits.SameSiteCookieWarningReason.WarnSameSiteStrictCrossDowngradeLax">
+        <member name="F:CefSharp.DevTools.Audits.CookieWarningReason.WarnSameSiteStrictCrossDowngradeLax">
             <summary>
             WarnSameSiteStrictCrossDowngradeLax
             </summary>
         </member>
-        <member name="F:CefSharp.DevTools.Audits.SameSiteCookieWarningReason.WarnSameSiteLaxCrossDowngradeStrict">
+        <member name="F:CefSharp.DevTools.Audits.CookieWarningReason.WarnSameSiteLaxCrossDowngradeStrict">
             <summary>
             WarnSameSiteLaxCrossDowngradeStrict
             </summary>
         </member>
-        <member name="F:CefSharp.DevTools.Audits.SameSiteCookieWarningReason.WarnSameSiteLaxCrossDowngradeLax">
+        <member name="F:CefSharp.DevTools.Audits.CookieWarningReason.WarnSameSiteLaxCrossDowngradeLax">
             <summary>
             WarnSameSiteLaxCrossDowngradeLax
             </summary>
         </member>
-        <member name="T:CefSharp.DevTools.Audits.SameSiteCookieOperation">
+        <member name="F:CefSharp.DevTools.Audits.CookieWarningReason.WarnAttributeValueExceedsMaxSize">
             <summary>
-            SameSiteCookieOperation
+            WarnAttributeValueExceedsMaxSize
             </summary>
         </member>
-        <member name="F:CefSharp.DevTools.Audits.SameSiteCookieOperation.SetCookie">
+        <member name="T:CefSharp.DevTools.Audits.CookieOperation">
+            <summary>
+            CookieOperation
+            </summary>
+        </member>
+        <member name="F:CefSharp.DevTools.Audits.CookieOperation.SetCookie">
             <summary>
             SetCookie
             </summary>
         </member>
-        <member name="F:CefSharp.DevTools.Audits.SameSiteCookieOperation.ReadCookie">
+        <member name="F:CefSharp.DevTools.Audits.CookieOperation.ReadCookie">
             <summary>
             ReadCookie
             </summary>
         </member>
-        <member name="T:CefSharp.DevTools.Audits.SameSiteCookieIssueDetails">
+        <member name="T:CefSharp.DevTools.Audits.CookieIssueDetails">
             <summary>
             This information is currently necessary, as the front-end has a difficult
             time finding a specific cookie. With this, we can convey specific error
             information without the cookie.
             </summary>
         </member>
-        <member name="P:CefSharp.DevTools.Audits.SameSiteCookieIssueDetails.Cookie">
+        <member name="P:CefSharp.DevTools.Audits.CookieIssueDetails.Cookie">
             <summary>
             If AffectedCookie is not set then rawCookieLine contains the raw
             Set-Cookie header string. This hints at a problem where the
@@ -2844,54 +2845,54 @@
             that no valid cookie could be created.
             </summary>
         </member>
-        <member name="P:CefSharp.DevTools.Audits.SameSiteCookieIssueDetails.RawCookieLine">
+        <member name="P:CefSharp.DevTools.Audits.CookieIssueDetails.RawCookieLine">
             <summary>
             RawCookieLine
             </summary>
         </member>
-        <member name="P:CefSharp.DevTools.Audits.SameSiteCookieIssueDetails.CookieWarningReasons">
+        <member name="P:CefSharp.DevTools.Audits.CookieIssueDetails.CookieWarningReasons">
             <summary>
             CookieWarningReasons
             </summary>
         </member>
-        <member name="P:CefSharp.DevTools.Audits.SameSiteCookieIssueDetails.cookieWarningReasons">
+        <member name="P:CefSharp.DevTools.Audits.CookieIssueDetails.cookieWarningReasons">
             <summary>
             CookieWarningReasons
             </summary>
         </member>
-        <member name="P:CefSharp.DevTools.Audits.SameSiteCookieIssueDetails.CookieExclusionReasons">
+        <member name="P:CefSharp.DevTools.Audits.CookieIssueDetails.CookieExclusionReasons">
             <summary>
             CookieExclusionReasons
             </summary>
         </member>
-        <member name="P:CefSharp.DevTools.Audits.SameSiteCookieIssueDetails.cookieExclusionReasons">
+        <member name="P:CefSharp.DevTools.Audits.CookieIssueDetails.cookieExclusionReasons">
             <summary>
             CookieExclusionReasons
             </summary>
         </member>
-        <member name="P:CefSharp.DevTools.Audits.SameSiteCookieIssueDetails.Operation">
+        <member name="P:CefSharp.DevTools.Audits.CookieIssueDetails.Operation">
             <summary>
             Optionally identifies the site-for-cookies and the cookie url, which
             may be used by the front-end as additional context.
             </summary>
         </member>
-        <member name="P:CefSharp.DevTools.Audits.SameSiteCookieIssueDetails.operation">
+        <member name="P:CefSharp.DevTools.Audits.CookieIssueDetails.operation">
             <summary>
             Optionally identifies the site-for-cookies and the cookie url, which
             may be used by the front-end as additional context.
             </summary>
         </member>
-        <member name="P:CefSharp.DevTools.Audits.SameSiteCookieIssueDetails.SiteForCookies">
+        <member name="P:CefSharp.DevTools.Audits.CookieIssueDetails.SiteForCookies">
             <summary>
             SiteForCookies
             </summary>
         </member>
-        <member name="P:CefSharp.DevTools.Audits.SameSiteCookieIssueDetails.CookieUrl">
+        <member name="P:CefSharp.DevTools.Audits.CookieIssueDetails.CookieUrl">
             <summary>
             CookieUrl
             </summary>
         </member>
-        <member name="P:CefSharp.DevTools.Audits.SameSiteCookieIssueDetails.Request">
+        <member name="P:CefSharp.DevTools.Audits.CookieIssueDetails.Request">
             <summary>
             Request
             </summary>
@@ -3540,11 +3541,6 @@
             InvalidAttributionSourceEventId
             </summary>
         </member>
-        <member name="F:CefSharp.DevTools.Audits.AttributionReportingIssueType.InvalidAttributionData">
-            <summary>
-            InvalidAttributionData
-            </summary>
-        </member>
         <member name="F:CefSharp.DevTools.Audits.AttributionReportingIssueType.AttributionSourceUntrustworthyOrigin">
             <summary>
             AttributionSourceUntrustworthyOrigin
@@ -3555,16 +3551,6 @@
             AttributionUntrustworthyOrigin
             </summary>
         </member>
-        <member name="F:CefSharp.DevTools.Audits.AttributionReportingIssueType.AttributionTriggerDataTooLarge">
-            <summary>
-            AttributionTriggerDataTooLarge
-            </summary>
-        </member>
-        <member name="F:CefSharp.DevTools.Audits.AttributionReportingIssueType.AttributionEventSourceTriggerDataTooLarge">
-            <summary>
-            AttributionEventSourceTriggerDataTooLarge
-            </summary>
-        </member>
         <member name="F:CefSharp.DevTools.Audits.AttributionReportingIssueType.InvalidAttributionSourceExpiry">
             <summary>
             InvalidAttributionSourceExpiry
@@ -3573,21 +3559,6 @@
         <member name="F:CefSharp.DevTools.Audits.AttributionReportingIssueType.InvalidAttributionSourcePriority">
             <summary>
             InvalidAttributionSourcePriority
-            </summary>
-        </member>
-        <member name="F:CefSharp.DevTools.Audits.AttributionReportingIssueType.InvalidEventSourceTriggerData">
-            <summary>
-            InvalidEventSourceTriggerData
-            </summary>
-        </member>
-        <member name="F:CefSharp.DevTools.Audits.AttributionReportingIssueType.InvalidTriggerPriority">
-            <summary>
-            InvalidTriggerPriority
-            </summary>
-        </member>
-        <member name="F:CefSharp.DevTools.Audits.AttributionReportingIssueType.InvalidTriggerDedupKey">
-            <summary>
-            InvalidTriggerDedupKey
             </summary>
         </member>
         <member name="T:CefSharp.DevTools.Audits.AttributionReportingIssueDetails">
@@ -3703,6 +3674,21 @@
             FrameId
             </summary>
         </member>
+        <member name="T:CefSharp.DevTools.Audits.DeprecationIssueType">
+            <summary>
+            DeprecationIssueType
+            </summary>
+        </member>
+        <member name="F:CefSharp.DevTools.Audits.DeprecationIssueType.DeprecationExample">
+            <summary>
+            DeprecationExample
+            </summary>
+        </member>
+        <member name="F:CefSharp.DevTools.Audits.DeprecationIssueType.Untranslated">
+            <summary>
+            Untranslated
+            </summary>
+        </member>
         <member name="T:CefSharp.DevTools.Audits.DeprecationIssueDetails">
             <summary>
             This issue tracks information needed to print a deprecation message.
@@ -3724,7 +3710,7 @@
         </member>
         <member name="P:CefSharp.DevTools.Audits.DeprecationIssueDetails.Message">
             <summary>
-            The content of the deprecation issue (this won&apos;t be translated),
+            The content of an untranslated deprecation issue,
             e.g. &quot;window.inefficientLegacyStorageMethod will be removed in M97,
             around January 2022. Please use Web Storage or Indexed Database
             instead. This standard was abandoned in January, 1970. See
@@ -3733,7 +3719,17 @@
         </member>
         <member name="P:CefSharp.DevTools.Audits.DeprecationIssueDetails.DeprecationType">
             <summary>
-            DeprecationType
+            The id of an untranslated deprecation issue e.g. PrefixedStorageInfo.
+            </summary>
+        </member>
+        <member name="P:CefSharp.DevTools.Audits.DeprecationIssueDetails.Type">
+            <summary>
+            Type
+            </summary>
+        </member>
+        <member name="P:CefSharp.DevTools.Audits.DeprecationIssueDetails.type">
+            <summary>
+            Type
             </summary>
         </member>
         <member name="T:CefSharp.DevTools.Audits.ClientHintIssueReason">
@@ -3784,6 +3780,31 @@
             TooManyRequests
             </summary>
         </member>
+        <member name="F:CefSharp.DevTools.Audits.FederatedAuthRequestIssueReason.ManifestListHttpNotFound">
+            <summary>
+            ManifestListHttpNotFound
+            </summary>
+        </member>
+        <member name="F:CefSharp.DevTools.Audits.FederatedAuthRequestIssueReason.ManifestListNoResponse">
+            <summary>
+            ManifestListNoResponse
+            </summary>
+        </member>
+        <member name="F:CefSharp.DevTools.Audits.FederatedAuthRequestIssueReason.ManifestListInvalidResponse">
+            <summary>
+            ManifestListInvalidResponse
+            </summary>
+        </member>
+        <member name="F:CefSharp.DevTools.Audits.FederatedAuthRequestIssueReason.ManifestNotInManifestList">
+            <summary>
+            ManifestNotInManifestList
+            </summary>
+        </member>
+        <member name="F:CefSharp.DevTools.Audits.FederatedAuthRequestIssueReason.ManifestListTooBig">
+            <summary>
+            ManifestListTooBig
+            </summary>
+        </member>
         <member name="F:CefSharp.DevTools.Audits.FederatedAuthRequestIssueReason.ManifestHttpNotFound">
             <summary>
             ManifestHttpNotFound
@@ -3812,6 +3833,16 @@
         <member name="F:CefSharp.DevTools.Audits.FederatedAuthRequestIssueReason.ClientMetadataInvalidResponse">
             <summary>
             ClientMetadataInvalidResponse
+            </summary>
+        </member>
+        <member name="F:CefSharp.DevTools.Audits.FederatedAuthRequestIssueReason.ClientMetadataMissingPrivacyPolicyUrl">
+            <summary>
+            ClientMetadataMissingPrivacyPolicyUrl
+            </summary>
+        </member>
+        <member name="F:CefSharp.DevTools.Audits.FederatedAuthRequestIssueReason.DisabledInSettings">
+            <summary>
+            DisabledInSettings
             </summary>
         </member>
         <member name="F:CefSharp.DevTools.Audits.FederatedAuthRequestIssueReason.ErrorFetchingSignin">
@@ -3897,9 +3928,9 @@
             information about the kind of issue.
             </summary>
         </member>
-        <member name="F:CefSharp.DevTools.Audits.InspectorIssueCode.SameSiteCookieIssue">
+        <member name="F:CefSharp.DevTools.Audits.InspectorIssueCode.CookieIssue">
             <summary>
-            SameSiteCookieIssue
+            CookieIssue
             </summary>
         </member>
         <member name="F:CefSharp.DevTools.Audits.InspectorIssueCode.MixedContentIssue">
@@ -3984,9 +4015,9 @@
             add a new optional field to this type.
             </summary>
         </member>
-        <member name="P:CefSharp.DevTools.Audits.InspectorIssueDetails.SameSiteCookieIssueDetails">
+        <member name="P:CefSharp.DevTools.Audits.InspectorIssueDetails.CookieIssueDetails">
             <summary>
-            SameSiteCookieIssueDetails
+            CookieIssueDetails
             </summary>
         </member>
         <member name="P:CefSharp.DevTools.Audits.InspectorIssueDetails.MixedContentIssueDetails">
@@ -5058,6 +5089,16 @@
             Matches of CSS rules matching the ancestor node in the style inheritance chain.
             </summary>
         </member>
+        <member name="T:CefSharp.DevTools.CSS.InheritedPseudoElementMatches">
+            <summary>
+            Inherited pseudo element matches from pseudos of an ancestor node.
+            </summary>
+        </member>
+        <member name="P:CefSharp.DevTools.CSS.InheritedPseudoElementMatches.PseudoElements">
+            <summary>
+            Matches of pseudo styles from the pseudos of an ancestor node.
+            </summary>
+        </member>
         <member name="T:CefSharp.DevTools.CSS.RuleMatch">
             <summary>
             Match data for a CSS rule.
@@ -5252,6 +5293,12 @@
             <summary>
             @supports CSS at-rule array.
             The array enumerates @supports at-rules starting with the innermost one, going outwards.
+            </summary>
+        </member>
+        <member name="P:CefSharp.DevTools.CSS.CSSRule.Layers">
+            <summary>
+            Cascade layer array. Contains the layer hierarchy that this rule belongs to starting
+            with the innermost layer and going outwards.
             </summary>
         </member>
         <member name="T:CefSharp.DevTools.CSS.RuleUsage">
@@ -5572,6 +5619,11 @@
             Supports rule text.
             </summary>
         </member>
+        <member name="P:CefSharp.DevTools.CSS.CSSSupports.Active">
+            <summary>
+            Whether the supports condition is satisfied.
+            </summary>
+        </member>
         <member name="P:CefSharp.DevTools.CSS.CSSSupports.Range">
             <summary>
             The associated rule header range in the enclosing stylesheet (if
@@ -5581,6 +5633,48 @@
         <member name="P:CefSharp.DevTools.CSS.CSSSupports.StyleSheetId">
             <summary>
             Identifier of the stylesheet containing this object (if exists).
+            </summary>
+        </member>
+        <member name="T:CefSharp.DevTools.CSS.CSSLayer">
+            <summary>
+            CSS Layer at-rule descriptor.
+            </summary>
+        </member>
+        <member name="P:CefSharp.DevTools.CSS.CSSLayer.Text">
+            <summary>
+            Layer name.
+            </summary>
+        </member>
+        <member name="P:CefSharp.DevTools.CSS.CSSLayer.Range">
+            <summary>
+            The associated rule header range in the enclosing stylesheet (if
+            available).
+            </summary>
+        </member>
+        <member name="P:CefSharp.DevTools.CSS.CSSLayer.StyleSheetId">
+            <summary>
+            Identifier of the stylesheet containing this object (if exists).
+            </summary>
+        </member>
+        <member name="T:CefSharp.DevTools.CSS.CSSLayerData">
+            <summary>
+            CSS Layer data.
+            </summary>
+        </member>
+        <member name="P:CefSharp.DevTools.CSS.CSSLayerData.Name">
+            <summary>
+            Layer name.
+            </summary>
+        </member>
+        <member name="P:CefSharp.DevTools.CSS.CSSLayerData.SubLayers">
+            <summary>
+            Direct sub-layers
+            </summary>
+        </member>
+        <member name="P:CefSharp.DevTools.CSS.CSSLayerData.Order">
+            <summary>
+            Layer order. The order determines the order of the layer in the cascade order.
+            A higher number has higher priority in the cascade order.
             </summary>
         </member>
         <member name="T:CefSharp.DevTools.CSS.PlatformFontUsage">
@@ -5896,6 +5990,11 @@
             inherited
             </summary>
         </member>
+        <member name="P:CefSharp.DevTools.CSS.GetMatchedStylesForNodeResponse.InheritedPseudoElements">
+            <summary>
+            inheritedPseudoElements
+            </summary>
+        </member>
         <member name="P:CefSharp.DevTools.CSS.GetMatchedStylesForNodeResponse.CssKeyframesRules">
             <summary>
             cssKeyframesRules
@@ -5929,6 +6028,16 @@
         <member name="P:CefSharp.DevTools.CSS.GetStyleSheetTextResponse.Text">
             <summary>
             text
+            </summary>
+        </member>
+        <member name="T:CefSharp.DevTools.CSS.GetLayersForNodeResponse">
+            <summary>
+            GetLayersForNodeResponse
+            </summary>
+        </member>
+        <member name="P:CefSharp.DevTools.CSS.GetLayersForNodeResponse.RootLayer">
+            <summary>
+            rootLayer
             </summary>
         </member>
         <member name="T:CefSharp.DevTools.CSS.TakeComputedStyleUpdatesResponse">
@@ -6174,6 +6283,16 @@
             </summary>
             <param name = "styleSheetId">styleSheetId</param>
             <returns>returns System.Threading.Tasks.Task&lt;GetStyleSheetTextResponse&gt;</returns>
+        </member>
+        <member name="M:CefSharp.DevTools.CSS.CSSClient.GetLayersForNodeAsync(System.Int32)">
+            <summary>
+            Returns all layers parsed by the rendering engine for the tree scope of a node.
+            Given a DOM element identified by nodeId, getLayersForNode returns the root
+            layer for the nearest ancestor document or shadow root. The layer root contains
+            the full layer tree for the tree scope and their ordering.
+            </summary>
+            <param name = "nodeId">nodeId</param>
+            <returns>returns System.Threading.Tasks.Task&lt;GetLayersForNodeResponse&gt;</returns>
         </member>
         <member name="M:CefSharp.DevTools.CSS.CSSClient.TrackComputedStyleUpdatesAsync(System.Collections.Generic.IList{CefSharp.DevTools.CSS.CSSComputedStyleProperty})">
             <summary>
@@ -6745,24 +6864,29 @@
             input-list-button
             </summary>
         </member>
-        <member name="F:CefSharp.DevTools.DOM.PseudoType.Transition">
+        <member name="F:CefSharp.DevTools.DOM.PseudoType.PageTransition">
             <summary>
-            transition
+            page-transition
             </summary>
         </member>
-        <member name="F:CefSharp.DevTools.DOM.PseudoType.TransitionContainer">
+        <member name="F:CefSharp.DevTools.DOM.PseudoType.PageTransitionContainer">
             <summary>
-            transition-container
+            page-transition-container
             </summary>
         </member>
-        <member name="F:CefSharp.DevTools.DOM.PseudoType.TransitionOldContent">
+        <member name="F:CefSharp.DevTools.DOM.PseudoType.PageTransitionImageWrapper">
             <summary>
-            transition-old-content
+            page-transition-image-wrapper
             </summary>
         </member>
-        <member name="F:CefSharp.DevTools.DOM.PseudoType.TransitionNewContent">
+        <member name="F:CefSharp.DevTools.DOM.PseudoType.PageTransitionOutgoingImage">
             <summary>
-            transition-new-content
+            page-transition-outgoing-image
+            </summary>
+        </member>
+        <member name="F:CefSharp.DevTools.DOM.PseudoType.PageTransitionIncomingImage">
+            <summary>
+            page-transition-incoming-image
             </summary>
         </member>
         <member name="T:CefSharp.DevTools.DOM.ShadowRootType">
@@ -9642,6 +9766,13 @@
             <param name = "acceptLanguage">Browser langugage to emulate.</param>
             <param name = "platform">The platform navigator.platform should return.</param>
             <param name = "userAgentMetadata">To be sent in Sec-CH-UA-* headers and returned in navigator.userAgentData</param>
+            <returns>returns System.Threading.Tasks.Task&lt;DevToolsMethodResponse&gt;</returns>
+        </member>
+        <member name="M:CefSharp.DevTools.Emulation.EmulationClient.SetAutomationOverrideAsync(System.Boolean)">
+            <summary>
+            Allows overriding the automation flag.
+            </summary>
+            <param name = "enabled">Whether the override should be enabled.</param>
             <returns>returns System.Threading.Tasks.Task&lt;DevToolsMethodResponse&gt;</returns>
         </member>
         <member name="T:CefSharp.DevTools.HeadlessExperimental.ScreenshotParamsFormat">
@@ -15782,6 +15913,11 @@
             hsl
             </summary>
         </member>
+        <member name="F:CefSharp.DevTools.Overlay.ColorFormat.Hwb">
+            <summary>
+            hwb
+            </summary>
+        </member>
         <member name="F:CefSharp.DevTools.Overlay.ColorFormat.Hex">
             <summary>
             hex
@@ -16427,6 +16563,11 @@
             autoplay
             </summary>
         </member>
+        <member name="F:CefSharp.DevTools.Page.PermissionsPolicyFeature.BrowsingTopics">
+            <summary>
+            browsing-topics
+            </summary>
+        </member>
         <member name="F:CefSharp.DevTools.Page.PermissionsPolicyFeature.Camera">
             <summary>
             camera
@@ -16452,6 +16593,11 @@
             ch-ect
             </summary>
         </member>
+        <member name="F:CefSharp.DevTools.Page.PermissionsPolicyFeature.ChPartitionedCookies">
+            <summary>
+            ch-partitioned-cookies
+            </summary>
+        </member>
         <member name="F:CefSharp.DevTools.Page.PermissionsPolicyFeature.ChPrefersColorScheme">
             <summary>
             ch-prefers-color-scheme
@@ -16460,6 +16606,11 @@
         <member name="F:CefSharp.DevTools.Page.PermissionsPolicyFeature.ChRtt">
             <summary>
             ch-rtt
+            </summary>
+        </member>
+        <member name="F:CefSharp.DevTools.Page.PermissionsPolicyFeature.ChSaveData">
+            <summary>
+            ch-save-data
             </summary>
         </member>
         <member name="F:CefSharp.DevTools.Page.PermissionsPolicyFeature.ChUa">
@@ -16535,11 +16686,6 @@
         <member name="F:CefSharp.DevTools.Page.PermissionsPolicyFeature.ChWidth">
             <summary>
             ch-width
-            </summary>
-        </member>
-        <member name="F:CefSharp.DevTools.Page.PermissionsPolicyFeature.ChPartitionedCookies">
-            <summary>
-            ch-partitioned-cookies
             </summary>
         </member>
         <member name="F:CefSharp.DevTools.Page.PermissionsPolicyFeature.ClipboardRead">
@@ -16625,6 +16771,11 @@
         <member name="F:CefSharp.DevTools.Page.PermissionsPolicyFeature.IdleDetection">
             <summary>
             idle-detection
+            </summary>
+        </member>
+        <member name="F:CefSharp.DevTools.Page.PermissionsPolicyFeature.InterestCohort">
+            <summary>
+            interest-cohort
             </summary>
         </member>
         <member name="F:CefSharp.DevTools.Page.PermissionsPolicyFeature.JoinAdInterestGroup">
@@ -17472,6 +17623,11 @@
             Page scale factor.
             </summary>
         </member>
+        <member name="M:CefSharp.DevTools.Page.Viewport.#ctor">
+            <summary>
+            Default Constructor
+            </summary>
+        </member>
         <member name="T:CefSharp.DevTools.Page.FontFamilies">
             <summary>
             Generic font families collection.
@@ -17505,11 +17661,6 @@
         <member name="P:CefSharp.DevTools.Page.FontFamilies.Fantasy">
             <summary>
             The fantasy font-family.
-            </summary>
-        </member>
-        <member name="P:CefSharp.DevTools.Page.FontFamilies.Pictograph">
-            <summary>
-            The pictograph font-family.
             </summary>
         </member>
         <member name="T:CefSharp.DevTools.Page.ScriptFontFamilies">
@@ -17988,6 +18139,16 @@
             ActivationNavigationsDisallowedForBug1234857
             </summary>
         </member>
+        <member name="F:CefSharp.DevTools.Page.BackForwardCacheNotRestoredReason.ErrorDocument">
+            <summary>
+            ErrorDocument
+            </summary>
+        </member>
+        <member name="F:CefSharp.DevTools.Page.BackForwardCacheNotRestoredReason.FencedFramesEmbedder">
+            <summary>
+            FencedFramesEmbedder
+            </summary>
+        </member>
         <member name="F:CefSharp.DevTools.Page.BackForwardCacheNotRestoredReason.WebSocket">
             <summary>
             WebSocket
@@ -18383,6 +18544,13 @@
             Not restored reason
             </summary>
         </member>
+        <member name="P:CefSharp.DevTools.Page.BackForwardCacheNotRestoredExplanation.Context">
+            <summary>
+            Context associated with the reason. The meaning of this context is
+            dependent on the reason:
+            - EmbedderExtensionSentMessageToCachedFrame: the extension ID.
+            </summary>
+        </member>
         <member name="T:CefSharp.DevTools.Page.BackForwardCacheNotRestoredExplanationTree">
             <summary>
             BackForwardCacheNotRestoredExplanationTree
@@ -18401,6 +18569,16 @@
         <member name="P:CefSharp.DevTools.Page.BackForwardCacheNotRestoredExplanationTree.Children">
             <summary>
             Array of children frame
+            </summary>
+        </member>
+        <member name="T:CefSharp.DevTools.Page.PrerenderFinalStatus">
+            <summary>
+            List of FinalStatus reasons for Prerender2.
+            </summary>
+        </member>
+        <member name="F:CefSharp.DevTools.Page.PrerenderFinalStatus.Activated">
+            <summary>
+            Activated
             </summary>
         </member>
         <member name="T:CefSharp.DevTools.Page.DomContentEventFiredEventArgs">
@@ -18817,6 +18995,31 @@
         <member name="P:CefSharp.DevTools.Page.BackForwardCacheNotUsedEventArgs.NotRestoredExplanationsTree">
             <summary>
             Tree structure of reasons why the page could not be cached for each frame.
+            </summary>
+        </member>
+        <member name="T:CefSharp.DevTools.Page.PrerenderAttemptCompletedEventArgs">
+            <summary>
+            Fired when a prerender attempt is completed.
+            </summary>
+        </member>
+        <member name="P:CefSharp.DevTools.Page.PrerenderAttemptCompletedEventArgs.InitiatingFrameId">
+            <summary>
+            The frame id of the frame initiating prerendering.
+            </summary>
+        </member>
+        <member name="P:CefSharp.DevTools.Page.PrerenderAttemptCompletedEventArgs.PrerenderingUrl">
+            <summary>
+            PrerenderingUrl
+            </summary>
+        </member>
+        <member name="P:CefSharp.DevTools.Page.PrerenderAttemptCompletedEventArgs.FinalStatus">
+            <summary>
+            FinalStatus
+            </summary>
+        </member>
+        <member name="P:CefSharp.DevTools.Page.PrerenderAttemptCompletedEventArgs.finalStatus">
+            <summary>
+            FinalStatus
             </summary>
         </member>
         <member name="T:CefSharp.DevTools.Page.LoadEventFiredEventArgs">
@@ -19356,6 +19559,11 @@
             not assume any ordering with the Page.frameNavigated event. This event is fired only for
             main-frame history navigation where the document changes (non-same-document navigations),
             when bfcache navigation fails.
+            </summary>
+        </member>
+        <member name="E:CefSharp.DevTools.Page.PageClient.PrerenderAttemptCompleted">
+            <summary>
+            Fired when a prerender attempt is completed.
             </summary>
         </member>
         <member name="E:CefSharp.DevTools.Page.PageClient.LoadEventFired">
@@ -23820,19 +24028,20 @@
             Value
             </summary>
         </member>
-        <member name="T:CefSharp.DevTools.Media.PlayerErrorType">
+        <member name="T:CefSharp.DevTools.Media.PlayerErrorSourceLocation">
             <summary>
-            PlayerErrorType
+            Represents logged source line numbers reported in an error.
+            NOTE: file and line are from chromium c++ implementation code, not js.
             </summary>
         </member>
-        <member name="F:CefSharp.DevTools.Media.PlayerErrorType.PipelineError">
+        <member name="P:CefSharp.DevTools.Media.PlayerErrorSourceLocation.File">
             <summary>
-            pipeline_error
+            File
             </summary>
         </member>
-        <member name="F:CefSharp.DevTools.Media.PlayerErrorType.MediaError">
+        <member name="P:CefSharp.DevTools.Media.PlayerErrorSourceLocation.Line">
             <summary>
-            media_error
+            Line
             </summary>
         </member>
         <member name="T:CefSharp.DevTools.Media.PlayerError">
@@ -23840,23 +24049,31 @@
             Corresponds to kMediaError
             </summary>
         </member>
-        <member name="P:CefSharp.DevTools.Media.PlayerError.Type">
+        <member name="P:CefSharp.DevTools.Media.PlayerError.ErrorType">
             <summary>
-            Type
+            ErrorType
             </summary>
         </member>
-        <member name="P:CefSharp.DevTools.Media.PlayerError.type">
+        <member name="P:CefSharp.DevTools.Media.PlayerError.Code">
             <summary>
-            Type
+            Code is the numeric enum entry for a specific set of error codes, such
+            as PipelineStatusCodes in media/base/pipeline_status.h
             </summary>
         </member>
-        <member name="P:CefSharp.DevTools.Media.PlayerError.ErrorCode">
+        <member name="P:CefSharp.DevTools.Media.PlayerError.Stack">
             <summary>
-            When this switches to using media::Status instead of PipelineStatus
-            we can remove &quot;errorCode&quot; and replace it with the fields from
-            a Status instance. This also seems like a duplicate of the error
-            level enum - there is a todo bug to have that level removed and
-            use this instead. (crbug.com/1068454)
+            A trace of where this error was caused / where it passed through.
+            </summary>
+        </member>
+        <member name="P:CefSharp.DevTools.Media.PlayerError.Cause">
+            <summary>
+            Errors potentially have a root cause error, ie, a DecoderError might be
+            caused by an WindowsError
+            </summary>
+        </member>
+        <member name="P:CefSharp.DevTools.Media.PlayerError.Data">
+            <summary>
+            Extra data attached to an error, such as an HRESULT, Video Codec, etc.
             </summary>
         </member>
         <member name="T:CefSharp.DevTools.Media.PlayerPropertiesChangedEventArgs">
@@ -25799,6 +26016,152 @@
             </summary>
             <returns>returns System.Threading.Tasks.Task&lt;TakeTypeProfileResponse&gt;</returns>
         </member>
+        <member name="T:CefSharp.DevTools.Runtime.WebDriverValueType">
+            <summary>
+            WebDriverValueType
+            </summary>
+        </member>
+        <member name="F:CefSharp.DevTools.Runtime.WebDriverValueType.Undefined">
+            <summary>
+            undefined
+            </summary>
+        </member>
+        <member name="F:CefSharp.DevTools.Runtime.WebDriverValueType.Null">
+            <summary>
+            null
+            </summary>
+        </member>
+        <member name="F:CefSharp.DevTools.Runtime.WebDriverValueType.String">
+            <summary>
+            string
+            </summary>
+        </member>
+        <member name="F:CefSharp.DevTools.Runtime.WebDriverValueType.Number">
+            <summary>
+            number
+            </summary>
+        </member>
+        <member name="F:CefSharp.DevTools.Runtime.WebDriverValueType.Boolean">
+            <summary>
+            boolean
+            </summary>
+        </member>
+        <member name="F:CefSharp.DevTools.Runtime.WebDriverValueType.Bigint">
+            <summary>
+            bigint
+            </summary>
+        </member>
+        <member name="F:CefSharp.DevTools.Runtime.WebDriverValueType.Regexp">
+            <summary>
+            regexp
+            </summary>
+        </member>
+        <member name="F:CefSharp.DevTools.Runtime.WebDriverValueType.Date">
+            <summary>
+            date
+            </summary>
+        </member>
+        <member name="F:CefSharp.DevTools.Runtime.WebDriverValueType.Symbol">
+            <summary>
+            symbol
+            </summary>
+        </member>
+        <member name="F:CefSharp.DevTools.Runtime.WebDriverValueType.Array">
+            <summary>
+            array
+            </summary>
+        </member>
+        <member name="F:CefSharp.DevTools.Runtime.WebDriverValueType.Object">
+            <summary>
+            object
+            </summary>
+        </member>
+        <member name="F:CefSharp.DevTools.Runtime.WebDriverValueType.Function">
+            <summary>
+            function
+            </summary>
+        </member>
+        <member name="F:CefSharp.DevTools.Runtime.WebDriverValueType.Map">
+            <summary>
+            map
+            </summary>
+        </member>
+        <member name="F:CefSharp.DevTools.Runtime.WebDriverValueType.Set">
+            <summary>
+            set
+            </summary>
+        </member>
+        <member name="F:CefSharp.DevTools.Runtime.WebDriverValueType.Weakmap">
+            <summary>
+            weakmap
+            </summary>
+        </member>
+        <member name="F:CefSharp.DevTools.Runtime.WebDriverValueType.Weakset">
+            <summary>
+            weakset
+            </summary>
+        </member>
+        <member name="F:CefSharp.DevTools.Runtime.WebDriverValueType.Error">
+            <summary>
+            error
+            </summary>
+        </member>
+        <member name="F:CefSharp.DevTools.Runtime.WebDriverValueType.Proxy">
+            <summary>
+            proxy
+            </summary>
+        </member>
+        <member name="F:CefSharp.DevTools.Runtime.WebDriverValueType.Promise">
+            <summary>
+            promise
+            </summary>
+        </member>
+        <member name="F:CefSharp.DevTools.Runtime.WebDriverValueType.Typedarray">
+            <summary>
+            typedarray
+            </summary>
+        </member>
+        <member name="F:CefSharp.DevTools.Runtime.WebDriverValueType.Arraybuffer">
+            <summary>
+            arraybuffer
+            </summary>
+        </member>
+        <member name="F:CefSharp.DevTools.Runtime.WebDriverValueType.Node">
+            <summary>
+            node
+            </summary>
+        </member>
+        <member name="F:CefSharp.DevTools.Runtime.WebDriverValueType.Window">
+            <summary>
+            window
+            </summary>
+        </member>
+        <member name="T:CefSharp.DevTools.Runtime.WebDriverValue">
+            <summary>
+            Represents the value serialiazed by the WebDriver BiDi specification
+            https://w3c.github.io/webdriver-bidi.
+            </summary>
+        </member>
+        <member name="P:CefSharp.DevTools.Runtime.WebDriverValue.Type">
+            <summary>
+            Type
+            </summary>
+        </member>
+        <member name="P:CefSharp.DevTools.Runtime.WebDriverValue.type">
+            <summary>
+            Type
+            </summary>
+        </member>
+        <member name="P:CefSharp.DevTools.Runtime.WebDriverValue.Value">
+            <summary>
+            Value
+            </summary>
+        </member>
+        <member name="P:CefSharp.DevTools.Runtime.WebDriverValue.ObjectId">
+            <summary>
+            ObjectId
+            </summary>
+        </member>
         <member name="T:CefSharp.DevTools.Runtime.RemoteObjectType">
             <summary>
             Object type.
@@ -25994,6 +26357,11 @@
         <member name="P:CefSharp.DevTools.Runtime.RemoteObject.Description">
             <summary>
             String representation of the object.
+            </summary>
+        </member>
+        <member name="P:CefSharp.DevTools.Runtime.RemoteObject.WebDriverValue">
+            <summary>
+            WebDriver BiDi representation of the value.
             </summary>
         </member>
         <member name="P:CefSharp.DevTools.Runtime.RemoteObject.ObjectId">
@@ -27159,7 +27527,7 @@
             <param name = "generatePreview">Whether preview should be generated for the result.</param>
             <returns>returns System.Threading.Tasks.Task&lt;AwaitPromiseResponse&gt;</returns>
         </member>
-        <member name="M:CefSharp.DevTools.Runtime.RuntimeClient.CallFunctionOnAsync(System.String,System.String,System.Collections.Generic.IList{CefSharp.DevTools.Runtime.CallArgument},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Int32},System.String,System.Nullable{System.Boolean})">
+        <member name="M:CefSharp.DevTools.Runtime.RuntimeClient.CallFunctionOnAsync(System.String,System.String,System.Collections.Generic.IList{CefSharp.DevTools.Runtime.CallArgument},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Int32},System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
             <summary>
             Calls function with given declaration on the given object. Object group of the result is
             inherited from the target object.
@@ -27175,6 +27543,7 @@
             <param name = "executionContextId">Specifies execution context which global object will be used to call function on. EitherexecutionContextId or objectId should be specified.</param>
             <param name = "objectGroup">Symbolic group name that can be used to release multiple objects. If objectGroup is notspecified and objectId is, objectGroup will be inherited from object.</param>
             <param name = "throwOnSideEffect">Whether to throw an exception if side effect cannot be ruled out during evaluation.</param>
+            <param name = "generateWebDriverValue">Whether the result should be serialized according to https://w3c.github.io/webdriver-bidi.</param>
             <returns>returns System.Threading.Tasks.Task&lt;CallFunctionOnResponse&gt;</returns>
         </member>
         <member name="M:CefSharp.DevTools.Runtime.RuntimeClient.CompileScriptAsync(System.String,System.String,System.Boolean,System.Nullable{System.Int32})">
@@ -27207,7 +27576,7 @@
             </summary>
             <returns>returns System.Threading.Tasks.Task&lt;DevToolsMethodResponse&gt;</returns>
         </member>
-        <member name="M:CefSharp.DevTools.Runtime.RuntimeClient.EvaluateAsync(System.String,System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Int32},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Double},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.String)">
+        <member name="M:CefSharp.DevTools.Runtime.RuntimeClient.EvaluateAsync(System.String,System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Int32},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Double},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.String,System.Nullable{System.Boolean})">
             <summary>
             Evaluates expression on global object.
             </summary>
@@ -27226,6 +27595,7 @@
             <param name = "replMode">Setting this flag to true enables `let` re-declaration and top-level `await`.Note that `let` variables can only be re-declared if they originate from`replMode` themselves.</param>
             <param name = "allowUnsafeEvalBlockedByCSP">The Content Security Policy (CSP) for the target might block 'unsafe-eval'which includes eval(), Function(), setTimeout() and setInterval()when called with non-callable arguments. This flag bypasses CSP for thisevaluation and allows unsafe-eval. Defaults to true.</param>
             <param name = "uniqueContextId">An alternative way to specify the execution context to evaluate in.Compared to contextId that may be reused across processes, this is guaranteed to besystem-unique, so it can be used to prevent accidental evaluation of the expressionin context different than intended (e.g. as a result of navigation across processboundaries).This is mutually exclusive with `contextId`.</param>
+            <param name = "generateWebDriverValue">Whether the result should be serialized according to https://w3c.github.io/webdriver-bidi.</param>
             <returns>returns System.Threading.Tasks.Task&lt;EvaluateResponse&gt;</returns>
         </member>
         <member name="M:CefSharp.DevTools.Runtime.RuntimeClient.GetIsolateIdAsync">
@@ -29815,6 +30185,11 @@
             processed and is therefore safe to retry on a different connection.
             </summary>
         </member>
+        <member name="F:CefSharp.CefErrorCode.TooManyAcceptChRestarts">
+            <summary>
+            The ACCEPT_CH restart has been triggered too many times
+            </summary>
+        </member>
         <member name="F:CefSharp.CefErrorCode.CacheMiss">
             <summary>
             The cache does not have the requested entry.
@@ -30120,21 +30495,6 @@
         <member name="F:CefSharp.CefEventFlags.CommandDown">
             <summary>
             Mac OS-X command key.
-            </summary>
-        </member>
-        <member name="T:CefSharp.CefFileDialogFlags">
-            <summary>
-            FileDialog Flags
-            </summary>
-        </member>
-        <member name="F:CefSharp.CefFileDialogFlags.OverwritePrompt">
-            <summary>
-            Prompt to overwrite if the user selects an existing file with the Save dialog.
-            </summary>
-        </member>
-        <member name="F:CefSharp.CefFileDialogFlags.HideReadOnly">
-            <summary>
-            Do not display read-only files.
             </summary>
         </member>
         <member name="T:CefSharp.CefFileDialogMode">
@@ -31137,6 +31497,12 @@
             navigations where the actual type is unknown. See also <see cref="F:CefSharp.TransitionType.DirectLoad"/>.
             </summary>
         </member>
+        <member name="F:CefSharp.TransitionType.AutoBookmark">
+            <summary>
+            User got to this page through a suggestion in the UI (for example, via the
+            destinations page). Chrome runtime only.
+            </summary>
+        </member>
         <member name="F:CefSharp.TransitionType.AutoSubFrame">
             <summary>
             Source is a subframe navigation. This is any content that is automatically
@@ -31155,6 +31521,25 @@
             link was loaded.
             </summary>
         </member>
+        <member name="F:CefSharp.TransitionType.Generated">
+            <summary>
+            User got to this page by typing in the URL bar and selecting an entry
+            that did not look like a URL.  For example, a match might have the URL
+            of a Google search result page, but appear like &quot;Search Google for ...&quot;.
+            These are not quite the same as EXPLICIT navigations because the user
+            didn&apos;t type or see the destination URL. Chrome runtime only.
+            See also TT_KEYWORD.
+            </summary>
+        </member>
+        <member name="F:CefSharp.TransitionType.AutoToplevel">
+            <summary>
+            This is a toplevel navigation. This is any content that is automatically
+            loaded in a toplevel frame.  For example, opening a tab to show the ASH
+            screen saver, opening the devtools window, opening the NTP after the safe
+            browsing warning, opening web-based dialog boxes are examples of
+            AUTO_TOPLEVEL navigations. Chrome runtime only.
+            </summary>
+        </member>
         <member name="F:CefSharp.TransitionType.FormSubmit">
             <summary>
             Source is a form submission by the user. NOTE: In some situations
@@ -31167,6 +31552,25 @@
             Source is a "reload" of the page via the Reload function or by re-visiting
             the same URL. NOTE: This is distinct from the concept of whether a
             particular load uses "reload semantics" (i.e. bypasses cached data).
+            </summary>
+        </member>
+        <member name="F:CefSharp.TransitionType.Keyword">
+            <summary>
+            The url was generated from a replaceable keyword other than the default
+            search provider. If the user types a keyword (which also applies to
+            tab-to-search) in the omnibox this qualifier is applied to the transition
+            type of the generated url. TemplateURLModel then may generate an
+            additional visit with a transition type of TT_KEYWORD_GENERATED against the
+            url &apos;http://&apos; + keyword. For example, if you do a tab-to-search against
+            wikipedia the generated url has a transition qualifer of TT_KEYWORD, and
+            TemplateURLModel generates a visit for &apos;wikipedia.org&apos; with a transition
+            type of TT_KEYWORD_GENERATED. Chrome runtime only.
+            </summary>
+        </member>
+        <member name="F:CefSharp.TransitionType.KeywordGenerated">
+            <summary>
+            Corresponds to a visit generated for a keyword. See description of
+            TT_KEYWORD for more details. Chrome runtime only.
             </summary>
         </member>
         <member name="F:CefSharp.TransitionType.SourceMask">
@@ -31188,6 +31592,18 @@
         <member name="F:CefSharp.TransitionType.DirectLoad">
             <summary>
             Loaded a URL directly via CreateBrowser, LoadURL or LoadRequest.
+            </summary>
+        </member>
+        <member name="F:CefSharp.TransitionType.HomePage">
+            <summary>
+            User is navigating to the home page. Chrome runtime only.
+            </summary>
+        </member>
+        <member name="F:CefSharp.TransitionType.FromApi">
+            <summary>
+            The transition originated from an external application; the exact
+            definition of this is embedder dependent. Chrome runtime and
+            extension system only.
             </summary>
         </member>
         <member name="F:CefSharp.TransitionType.ChainStart">
@@ -31367,6 +31783,21 @@
         <member name="F:CefSharp.WindowOpenDisposition.IgnoreAction">
             <summary>
             An enum constant representing the ignore action option.
+            </summary>
+        </member>
+        <member name="F:CefSharp.WindowOpenDisposition.SwitchToTab">
+            <summary>
+            Activates an existing tab containing the url, rather than navigating.
+            This is similar to SINGLETON_TAB, but searches across all windows from
+            the current profile and anonymity (instead of just the current one);
+            closes the current tab on switching if the current tab was the NTP with
+            no session history; and behaves like CURRENT_TAB instead of
+            NEW_FOREGROUND_TAB when no existing tab is found.
+            </summary>
+        </member>
+        <member name="F:CefSharp.WindowOpenDisposition.NewPictureInPicture">
+            <summary>
+            Creates a new document picture-in-picture window showing a child WebView.
             </summary>
         </member>
         <member name="T:CefSharp.AddressChangedEventArgs">
@@ -31796,7 +32227,7 @@
         <member name="M:CefSharp.Handler.AudioHandler.OnAudioStreamStarted(CefSharp.IWebBrowser,CefSharp.IBrowser,CefSharp.Structs.AudioParameters,System.Int32)">
             <summary>
             Called on a browser audio capture thread when the browser starts streaming audio.
-            OnAudioSteamStopped will always be called after OnAudioStreamStarted; both methods may be called multiple
+            OnAudioStreamStopped will always be called after OnAudioStreamStarted; both methods may be called multiple
             times for the same browser.
             </summary>
             <param name="chromiumWebBrowser">the ChromiumWebBrowser control</param>
@@ -31825,7 +32256,7 @@
         </member>
         <member name="M:CefSharp.Handler.AudioHandler.OnAudioStreamStopped(CefSharp.IWebBrowser,CefSharp.IBrowser)">
             <summary>
-            Called on the CEF UI thread when the stream has stopped. OnAudioSteamStopped will always be called after <see cref="M:CefSharp.Handler.AudioHandler.OnAudioStreamStarted(CefSharp.IWebBrowser,CefSharp.IBrowser,CefSharp.Structs.AudioParameters,System.Int32)"/>;
+            Called on the CEF UI thread when the stream has stopped. OnAudioStreamStopped will always be called after <see cref="M:CefSharp.Handler.AudioHandler.OnAudioStreamStarted(CefSharp.IWebBrowser,CefSharp.IBrowser,CefSharp.Structs.AudioParameters,System.Int32)"/>;
             both methods may be called multiple times for the same stream.
             </summary>
             <param name="chromiumWebBrowser">the ChromiumWebBrowser control</param>
@@ -32004,10 +32435,10 @@
             Implement this interface to handle dialog events. The methods of this class will be called on the CEF UI thread.
             </summary>
         </member>
-        <member name="M:CefSharp.Handler.DialogHandler.CefSharp#IDialogHandler#OnFileDialog(CefSharp.IWebBrowser,CefSharp.IBrowser,CefSharp.CefFileDialogMode,CefSharp.CefFileDialogFlags,System.String,System.String,System.Collections.Generic.List{System.String},System.Int32,CefSharp.IFileDialogCallback)">
+        <member name="M:CefSharp.Handler.DialogHandler.CefSharp#IDialogHandler#OnFileDialog(CefSharp.IWebBrowser,CefSharp.IBrowser,CefSharp.CefFileDialogMode,System.String,System.String,System.Collections.Generic.List{System.String},CefSharp.IFileDialogCallback)">
             <inheritdoc/>
         </member>
-        <member name="M:CefSharp.Handler.DialogHandler.OnFileDialog(CefSharp.IWebBrowser,CefSharp.IBrowser,CefSharp.CefFileDialogMode,CefSharp.CefFileDialogFlags,System.String,System.String,System.Collections.Generic.List{System.String},System.Int32,CefSharp.IFileDialogCallback)">
+        <member name="M:CefSharp.Handler.DialogHandler.OnFileDialog(CefSharp.IWebBrowser,CefSharp.IBrowser,CefSharp.CefFileDialogMode,System.String,System.String,System.Collections.Generic.List{System.String},CefSharp.IFileDialogCallback)">
             <summary>
             Runs a file chooser dialog. 
             </summary>
@@ -32022,7 +32453,6 @@
             <param name="chromiumWebBrowser">the ChromiumWebBrowser control</param>
             <param name="browser">the browser object</param>
             <param name="mode">represents the type of dialog to display</param>
-            <param name="flags">further specifies behavior dialog should exhibit</param>
             <param name="title">the title to be used for the dialog. It may be empty to show the default title ("Open" or "Save" 
             depending on the mode).</param>
             <param name="defaultFilePath">is the path with optional directory and/or file name component that
@@ -32031,7 +32461,6 @@
             (a) valid lower-cased MIME types (e.g. "text/*" or "image/*"),
             (b) individual file extensions (e.g. ".txt" or ".png"),
             (c) combined description and file extension delimited using "|" and ";" (e.g. "Image Types|.png;.gif;.jpg").</param>
-            <param name="selectedAcceptFilter">is the 0-based index of the filter that should be selected by default.</param>
             <param name="callback">Callback interface for asynchronous continuation of file dialog requests.</param>
             <returns>To display a custom dialog return true. To display the default dialog return false.</returns>
         </member>
@@ -32164,6 +32593,21 @@
             Class used to handle file downloads.
             The methods of this class will called on the CEF UI thread. 
             </summary>
+        </member>
+        <member name="M:CefSharp.Handler.DownloadHandler.CefSharp#IDownloadHandler#CanDownload(CefSharp.IWebBrowser,CefSharp.IBrowser,System.String,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:CefSharp.Handler.DownloadHandler.CanDownload(CefSharp.IWebBrowser,CefSharp.IBrowser,System.String,System.String)">
+            <summary>
+            Called before a download begins in response to a user-initiated action
+            (e.g. alt + link click or link click that returns a `Content-Disposition:
+            attachment` response from the server).
+            </summary>
+            <param name="chromiumWebBrowser">the ChromiumWebBrowser control</param>
+            <param name="browser">The browser instance</param>
+            <param name="url">is the target download URL</param>
+            <param name="requestMethod">is the target method (GET, POST, etc)</param>
+            <returns>Return true to proceed with the download or false to cancel the download.</returns>
         </member>
         <member name="M:CefSharp.Handler.DownloadHandler.CefSharp#IDownloadHandler#OnBeforeDownload(CefSharp.IWebBrowser,CefSharp.IBrowser,CefSharp.DownloadItem,CefSharp.IBeforeDownloadCallback)">
             <summary>
@@ -33586,7 +34030,7 @@
         <member name="M:CefSharp.IAudioHandler.OnAudioStreamStarted(CefSharp.IWebBrowser,CefSharp.IBrowser,CefSharp.Structs.AudioParameters,System.Int32)">
             <summary>
             Called on a browser audio capture thread when the browser starts streaming audio.
-            OnAudioSteamStopped will always be called after OnAudioStreamStarted; both methods may be called multiple
+            OnAudioStreamStopped will always be called after OnAudioStreamStarted; both methods may be called multiple
             times for the same browser.
             </summary>
             <param name="chromiumWebBrowser">the ChromiumWebBrowser control</param>
@@ -33609,7 +34053,7 @@
         </member>
         <member name="M:CefSharp.IAudioHandler.OnAudioStreamStopped(CefSharp.IWebBrowser,CefSharp.IBrowser)">
             <summary>
-            Called on the CEF UI thread when the stream has stopped. OnAudioSteamStopped will always be called after <see cref="M:CefSharp.IAudioHandler.OnAudioStreamStarted(CefSharp.IWebBrowser,CefSharp.IBrowser,CefSharp.Structs.AudioParameters,System.Int32)"/>;
+            Called on the CEF UI thread when the stream has stopped. OnAudioStreamStopped will always be called after <see cref="M:CefSharp.IAudioHandler.OnAudioStreamStarted(CefSharp.IWebBrowser,CefSharp.IBrowser,CefSharp.Structs.AudioParameters,System.Int32)"/>;
             both methods may be called multiple times for the same stream.
             </summary>
             <param name="chromiumWebBrowser">the ChromiumWebBrowser control</param>
@@ -33744,7 +34188,7 @@
             Implement this interface to handle dialog events. The methods of this class will be called on the CEF UI thread.
             </summary>
         </member>
-        <member name="M:CefSharp.IDialogHandler.OnFileDialog(CefSharp.IWebBrowser,CefSharp.IBrowser,CefSharp.CefFileDialogMode,CefSharp.CefFileDialogFlags,System.String,System.String,System.Collections.Generic.List{System.String},System.Int32,CefSharp.IFileDialogCallback)">
+        <member name="M:CefSharp.IDialogHandler.OnFileDialog(CefSharp.IWebBrowser,CefSharp.IBrowser,CefSharp.CefFileDialogMode,System.String,System.String,System.Collections.Generic.List{System.String},CefSharp.IFileDialogCallback)">
             <summary>
             Runs a file chooser dialog. 
             </summary>
@@ -33759,7 +34203,6 @@
             <param name="chromiumWebBrowser">the ChromiumWebBrowser control</param>
             <param name="browser">the browser object</param>
             <param name="mode">represents the type of dialog to display</param>
-            <param name="flags">further specifies behavior dialog should exhibit</param>
             <param name="title">the title to be used for the dialog. It may be empty to show the default title ("Open" or "Save" 
             depending on the mode).</param>
             <param name="defaultFilePath">is the path with optional directory and/or file name component that
@@ -33768,7 +34211,6 @@
             (a) valid lower-cased MIME types (e.g. "text/*" or "image/*"),
             (b) individual file extensions (e.g. ".txt" or ".png"),
             (c) combined description and file extension delimited using "|" and ";" (e.g. "Image Types|.png;.gif;.jpg").</param>
-            <param name="selectedAcceptFilter">is the 0-based index of the filter that should be selected by default.</param>
             <param name="callback">Callback interface for asynchronous continuation of file dialog requests.</param>
             <returns>To display a custom dialog return true. To display the default dialog return false.</returns>
         </member>
@@ -33871,6 +34313,18 @@
             Class used to handle file downloads.
             The methods of this class will called on the CEF UI thread. 
             </summary>
+        </member>
+        <member name="M:CefSharp.IDownloadHandler.CanDownload(CefSharp.IWebBrowser,CefSharp.IBrowser,System.String,System.String)">
+            <summary>
+            Called before a download begins in response to a user-initiated action
+            (e.g. alt + link click or link click that returns a `Content-Disposition:
+            attachment` response from the server).
+            </summary>
+            <param name="chromiumWebBrowser">the ChromiumWebBrowser control</param>
+            <param name="browser">The browser instance</param>
+            <param name="url">is the target download URL</param>
+            <param name="requestMethod">is the target method (GET, POST, etc)</param>
+            <returns>Return true to proceed with the download or false to cancel the download.</returns>
         </member>
         <member name="M:CefSharp.IDownloadHandler.OnBeforeDownload(CefSharp.IWebBrowser,CefSharp.IBrowser,CefSharp.DownloadItem,CefSharp.IBeforeDownloadCallback)">
             <summary>
@@ -35331,7 +35785,7 @@
             </summary>
             <param name="word">word to be replaced</param>
         </member>
-        <member name="M:CefSharp.IBrowserHost.RunFileDialog(CefSharp.CefFileDialogMode,System.String,System.String,System.Collections.Generic.IList{System.String},System.Int32,CefSharp.Callback.IRunFileDialogCallback)">
+        <member name="M:CefSharp.IBrowserHost.RunFileDialog(CefSharp.CefFileDialogMode,System.String,System.String,System.Collections.Generic.IList{System.String},CefSharp.Callback.IRunFileDialogCallback)">
             <summary>
             Call to run a file chooser dialog. Only a single file chooser dialog may be pending at any given time.
             The dialog will be initiated asynchronously on the CEF UI thread.
@@ -35340,7 +35794,6 @@
             <param name="title">to the title to be used for the dialog and may be empty to show the default title ("Open" or "Save" depending on the mode)</param>
             <param name="defaultFilePath">is the path with optional directory and/or file name component that will be initially selected in the dialog</param>
             <param name="acceptFilters">are used to restrict the selectable file types and may any combination of (a) valid lower-cased MIME types (e.g. "text/*" or "image/*"), (b) individual file extensions (e.g. ".txt" or ".png"), or (c) combined description and file extension delimited using "|" and ";" (e.g. "Image Types|.png;.gif;.jpg")</param>
-            <param name="selectedAcceptFilter">is the 0-based index of the filter that will be selected by default</param>
             <param name="callback">will be executed after the dialog is dismissed or immediately if another dialog is already pending.</param>
         </member>
         <member name="P:CefSharp.IBrowserHost.RequestContext">
@@ -35809,6 +36262,33 @@
             A HttpStatusCode equal to 200 and <see cref="F:CefSharp.CefErrorCode.None"/> is considered a success.
             </returns>
         </member>
+        <member name="M:CefSharp.IChromiumWebBrowserBase.WaitForNavigationAsync(System.Nullable{System.TimeSpan},System.Threading.CancellationToken)">
+            <summary>
+            This resolves when the browser navigates to a new URL or reloads.
+            It is useful for when you run code which will indirectly cause the browser to navigate.
+            A common use case would be when executing javascript that results in a navigation. e.g. clicks a link
+            This must be called before executing the action that navigates the browser. It may not resolve correctly
+            if called after.
+            </summary>
+            <remarks>
+            Usage of the <c>History API</c> <see href="https://developer.mozilla.org/en-US/docs/Web/API/History_API"/> to change the URL is considered a navigation
+            </remarks>
+            <param name="timeout">optional timeout, if not specified defaults to five(5) seconds.</param>
+            <param name="cancellationToken">optional CancellationToken</param>
+            <returns>Task which resolves when <see cref="E:CefSharp.IChromiumWebBrowserBase.LoadingStateChanged"/> has been called with <see cref="P:CefSharp.LoadingStateChangedEventArgs.IsLoading"/> false.
+            or when <see cref="E:CefSharp.IChromiumWebBrowserBase.LoadError"/> is called to signify a load failure.
+            </returns>
+            <example>
+            <code>
+            <![CDATA[
+            string script = "document.getElementsByTagName('a')[0].click();";
+            await Task.WhenAll(
+                chromiumWebBrowser.WaitForNavigationAsync(),
+                chromiumWebBrowser.EvaluateScriptAsync(jsScript3));
+            ]]>
+            </code>
+            </example>
+        </member>
         <member name="P:CefSharp.IChromiumWebBrowserBase.IsBrowserInitialized">
             <summary>
             A flag that indicates whether the WebBrowser is initialized (true) or not (false).
@@ -36201,6 +36681,11 @@
             <param name="stream">Stream data is to be written to. If null this method will return the
             size of the file contents in bytes.</param>
             <returns>Returns the number of bytes written to the stream</returns>
+        </member>
+        <member name="M:CefSharp.IDragData.ClearFilenames">
+            <summary>
+            Clear list of filenames.
+            </summary>
         </member>
         <member name="P:CefSharp.IDragData.IsDisposed">
             <summary>
@@ -37919,6 +38404,12 @@
             Captured Sync Context
             </summary>
         </member>
+        <member name="T:CefSharp.Internals.TaskTimeoutExtensions">
+            <summary>
+            WaitAsync polyfills imported from .Net Runtime
+            as we don't get access to this method in older .net versions
+            </summary>
+        </member>
         <member name="T:CefSharp.ByteArrayResourceHandler">
             <summary>
             ByteArrayResourceHandler is used as a placeholder class which uses native CEF implementations.
@@ -39002,6 +39493,12 @@
             <param name="browser">When this method returns, contains the <see cref="T:CefSharp.IBrowser"/> object reference that matches the specified <paramref name="browserId"/>, or null if no matching instance found.</param>
             <returns>true if a <see cref="T:CefSharp.IBrowser"/> instance was found matching <paramref name="browserId"/>; otherwise, false.</returns>
         </member>
+        <member name="M:CefSharp.IWebBrowser.GetContentSizeAsync">
+            <summary>
+            Size of scrollable area in CSS pixels
+            </summary>
+            <returns>A task that can be awaited to get the size of the scrollable area in CSS pixels.</returns>
+        </member>
         <member name="T:CefSharp.IWindowInfo">
             <summary>
             Class representing window information.
@@ -39069,6 +39566,11 @@
         <member name="P:CefSharp.IWindowInfo.WindowHandle">
             <summary>
             Handle for the new browser window. Only used with windowed rendering.
+            </summary>
+        </member>
+        <member name="P:CefSharp.IWindowInfo.WindowName">
+            <summary>
+            Window Name
             </summary>
         </member>
         <member name="M:CefSharp.IWindowInfo.SetAsChild(System.IntPtr)">
@@ -39428,7 +39930,7 @@
         </member>
         <member name="T:CefSharp.LoadUrlAsyncResponse">
             <summary>
-            Response returned from <see cref="!:IWebBrowser.LoadUrlAsync(string, System.Threading.SynchronizationContext)"/>
+            Response returned from <see cref="M:CefSharp.IChromiumWebBrowserBase.LoadUrlAsync(System.String)"/>
             </summary>
         </member>
         <member name="P:CefSharp.LoadUrlAsyncResponse.ErrorCode">
@@ -41438,6 +41940,67 @@
             Task that can be awaited for the result to be retrieved async
             </summary>
         </member>
+        <member name="T:CefSharp.WaitForNavigationAsyncResponse">
+            <summary>
+            WaitForNavigationAsyncResponse
+            </summary>
+        </member>
+        <member name="P:CefSharp.WaitForNavigationAsyncResponse.ErrorCode">
+            <summary>
+            Error Code. If the network request was made successfully this value will be <see cref="F:CefSharp.CefErrorCode.None"/>
+            (no error occured)
+            </summary>
+        </member>
+        <member name="P:CefSharp.WaitForNavigationAsyncResponse.HttpStatusCode">
+            <summary>
+            Http Status Code. If <see cref="P:CefSharp.WaitForNavigationAsyncResponse.ErrorCode"/> is not equal to <see cref="F:CefSharp.CefErrorCode.None"/>
+            then this value will be -1.
+            </summary>
+        </member>
+        <member name="P:CefSharp.WaitForNavigationAsyncResponse.Success">
+            <summary>
+            If <see cref="P:CefSharp.WaitForNavigationAsyncResponse.ErrorCode"/> is equal to <see cref="F:CefSharp.CefErrorCode.None"/> and
+            <see cref="P:CefSharp.WaitForNavigationAsyncResponse.HttpStatusCode"/> is equal to 200 (OK) then the main frame loaded without
+            critical error. 
+            </summary>
+        </member>
+        <member name="M:CefSharp.WaitForNavigationAsyncResponse.#ctor(CefSharp.CefErrorCode,System.Int32)">
+            <summary>
+            Initializes a new instance of the WaitForNavigationAsyncResponse class.
+            </summary>
+            <param name="errorCode">CEF Error Code</param>
+            <param name="httpStatusCode">Http Status Code</param>
+        </member>
+        <member name="T:CefSharp.WaitForSelectorAsyncResponse">
+            <summary>
+            WaitForSelectorAsyncResponse
+            </summary>
+        </member>
+        <member name="P:CefSharp.WaitForSelectorAsyncResponse.ElementId">
+            <summary>
+            Element Id
+            </summary>
+        </member>
+        <member name="P:CefSharp.WaitForSelectorAsyncResponse.TagName">
+            <summary>
+            Tag Name
+            </summary>
+        </member>
+        <member name="P:CefSharp.WaitForSelectorAsyncResponse.Success">
+            <summary>
+            True if the javascript was executed successfully
+            </summary>
+        </member>
+        <member name="P:CefSharp.WaitForSelectorAsyncResponse.ErrorMessage">
+            <summary>
+            Error Message
+            </summary>
+        </member>
+        <member name="P:CefSharp.WaitForSelectorAsyncResponse.ElementAdded">
+            <summary>
+            True if the element was added to the DOM otherwise false if it was removed
+            </summary>
+        </member>
         <member name="T:CefSharp.WebBrowserExtensions">
             <summary>
             WebBrowser extensions - These methods make performing common tasks easier.
@@ -41640,6 +42203,63 @@
             </summary>
             <param name="url">url to load</param>
             <returns>See <see cref="M:CefSharp.IChromiumWebBrowserBase.LoadUrlAsync(System.String)"/> for details</returns>
+        </member>
+        <member name="M:CefSharp.WebBrowserExtensions.WaitForNavigationAsync(CefSharp.IChromiumWebBrowserBase,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)">
+            <summary>
+            This resolves when the browser navigates to a new URL or reloads.
+            It is useful for when you run code which will indirectly cause the browser to navigate.
+            A common use case would be when executing javascript that results in a navigation. e.g. clicks a link
+            This must be called before executing the action that navigates the browser. It may not resolve correctly
+            if called after.
+            </summary>
+            <remarks>
+            Usage of the <c>History API</c> <see href="https://developer.mozilla.org/en-US/docs/Web/API/History_API"/> to change the URL is considered a navigation
+            </remarks>
+            <param name="chromiumWebBrowser">ChromiumWebBrowser instance (cannot be null)</param>
+            <param name="timeout">optional timeout, if not specified defaults to five(5) seconds.</param>
+            <param name="cancellationToken">optional CancellationToken</param>
+            <returns>Task which resolves when <see cref="E:CefSharp.IChromiumWebBrowserBase.LoadingStateChanged"/> has been called with <see cref="P:CefSharp.LoadingStateChangedEventArgs.IsLoading"/> false.
+            or when <see cref="E:CefSharp.IChromiumWebBrowserBase.LoadError"/> is called to signify a load failure.
+            </returns>
+            <example>
+            <code>
+            <![CDATA[
+            string script = "document.getElementsByTagName('a')[0].click();";
+            await Task.WhenAll(
+                chromiumWebBrowser.WaitForNavigationAsync(),
+                chromiumWebBrowser.EvaluateScriptAsync(script));
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:CefSharp.WebBrowserExtensions.WaitForSelectorAsync(CefSharp.IWebBrowser,System.String,System.Nullable{System.TimeSpan},System.Boolean)">
+            <summary>
+            Waits for a DOM element specified by the <paramref name="selector"/> string to be added to or removed from the DOM.
+            A simplified version of Puppeteer WaitForSelector. Uses a MutationObserver to wait for the element to become added or removed.
+            </summary>
+            <param name="chromiumWebBrowser">ChromiumWebBrowser instance (cannot be null)</param>
+            <param name="selector">querySelector for the element e.g. #idOfMyElement</param>
+            <param name="timeout">timeout</param>
+            <param name="removed">
+            (Optional) if true  waits for element to be removed from the DOM. If the querySelector immediately resolves
+            to null then the element is considered removed. If false (default) waits for the element to be added to the DOM.
+            </param>
+            <returns>A Task that resolves when element specified by selector string is added to or removed from the DOM.</returns>
+            <example>
+            <code>
+            <![CDATA[
+            string script = "const newDiv = document.createElement('div'); newDiv.id = 'myElement'; document.body.append(newDiv);";
+            await Task.WhenAll(
+                browser.WaitForSelectorAsync("#myElement");,
+                chromiumWebBrowser.EvaluateScriptAsync(script));
+            ]]>
+            </code>
+            </example>
+            <remarks>
+            This function is typically used in conjunction with javascript that directly or indirectly adds/removes an element from the DOM.
+            Unlike the puppeteer version navigations aren't handled internally, the method will throw a <see cref="T:System.TimeoutException"/> if a navigation
+            occurs whilst waiting to resolve.
+            </remarks>
         </member>
         <member name="M:CefSharp.WebBrowserExtensions.ExecuteScriptAsync(CefSharp.IChromiumWebBrowserBase,System.String,System.Object[])">
             <summary>
@@ -41861,6 +42481,16 @@
             storage has been initialized.</param>
             <returns>
             Cookie Manager.
+            </returns>
+        </member>
+        <member name="M:CefSharp.WebBrowserExtensions.GetRequestContext(CefSharp.IChromiumWebBrowserBase)">
+            <summary>
+            Gets the RequestContext associated with the <see cref="T:CefSharp.IChromiumWebBrowserBase"/> instance.
+            </summary>
+            <exception cref="T:System.Exception">Thrown when an exception error condition occurs.</exception>
+            <param name="browser">The ChromiumWebBrowser instance this method extends.</param>
+            <returns>
+            RequestContext
             </returns>
         </member>
         <member name="M:CefSharp.WebBrowserExtensions.GetZoomLevelAsync(CefSharp.IBrowser)">
@@ -42217,6 +42847,12 @@
             property used when passing a ChromiumWebBrowser instance to <see cref="M:CefSharp.ILifeSpanHandler.OnBeforePopup(CefSharp.IWebBrowser,CefSharp.IBrowser,CefSharp.IFrame,System.String,System.String,CefSharp.WindowOpenDisposition,System.Boolean,CefSharp.IPopupFeatures,CefSharp.IWindowInfo,CefSharp.IBrowserSettings,System.Boolean@,CefSharp.IWebBrowser@)"/>
             </summary>
             <param name="browser">The ChromiumWebBrowser instance this method extends.</param>
+        </member>
+        <member name="M:CefSharp.WebBrowserExtensions.DisposeDevToolsContext(CefSharp.Internals.IWebBrowserInternal)">
+            <summary>
+            Dispose of the DevTools Context (if any). Used in conjunction with CefSharp.Puppeteer
+            </summary>
+            <param name="webBrowserInternal">ChromiumWebBrowser instance</param>
         </member>
         <member name="P:CefSharp.WebBrowserExtensions.EncodeScriptParam">
             <summary>

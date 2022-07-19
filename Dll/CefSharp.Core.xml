@@ -816,12 +816,6 @@
             RequestContextSettings.CookieableSchemesExcludeDefaults values.
             </summary>
         </member>
-        <member name="P:CefSharp.CefSettingsBase.ApplicationClientIdForFileScanning">
-            <summary>
-            GUID string used for identifying the application. This is passed to the system AV function for scanning downloaded files. By
-            default, the GUID will be an empty string and the file will be treated as an untrusted file when the GUID is empty.
-            </summary>
-        </member>
         <member name="M:CefSharp.CefSettingsBase.RegisterScheme(CefSharp.CefCustomScheme)">
             <summary>
             Registers a custom scheme using the provided settings.
@@ -831,7 +825,7 @@
         <member name="M:CefSharp.CefSettingsBase.DisableGpuAcceleration">
             <summary>
             Set command line argument to disable GPU Acceleration. WebGL will use
-            software rendering via Swiftshader (https://swiftshader.googlesource.com/SwiftShader#introduction)
+            software rendering
             </summary>
         </member>
         <member name="M:CefSharp.CefSettingsBase.EnablePrintPreview">
@@ -842,9 +836,8 @@
         </member>
         <member name="M:CefSharp.CefSettingsBase.SetOffScreenRenderingBestPerformanceArgs">
             <summary>
-            Set command line arguments for best OSR (Offscreen and WPF) Rendering performance Swiftshader will be used for WebGL, look at the source
-            to determine which flags best suite your requirements. See https://swiftshader.googlesource.com/SwiftShader#introduction for
-            details on Swiftshader
+            Set command line arguments for best OSR (Offscreen and WPF) Rendering performance Software Rendering will be used for WebGL, look at the source
+            to determine which flags best suite your requirements. 
             </summary>
         </member>
         <member name="T:CefSharp.DragData">
@@ -857,6 +850,18 @@
             Create a new instance of <see cref="T:CefSharp.IDragData"/>
             </summary>
             <returns>DragData</returns>
+        </member>
+        <member name="T:CefSharp.Fluent.CanDownloadDelegate">
+            <summary>
+            Called before a download begins in response to a user-initiated action
+            (e.g. alt + link click or link click that returns a `Content-Disposition:
+            attachment` response from the server).
+            </summary>
+            <param name="chromiumWebBrowser">the ChromiumWebBrowser control</param>
+            <param name="browser">The browser instance</param>
+            <param name="url">is the target download URL</param>
+            <param name="requestMethod">is the target method (GET, POST, etc)</param>
+            <returns>Return true to proceed with the download or false to cancel the download.</returns>
         </member>
         <member name="T:CefSharp.Fluent.OnBeforeDownloadDelegate">
             <summary>
@@ -911,6 +916,9 @@
             Use <see cref="M:CefSharp.Fluent.DownloadHandler.Create"/> to create a new instance of the fluent builder
             </summary>
         </member>
+        <member name="M:CefSharp.Fluent.DownloadHandler.CanDownload(CefSharp.IWebBrowser,CefSharp.IBrowser,System.String,System.String)">
+            <inheritdoc/>
+        </member>
         <member name="M:CefSharp.Fluent.DownloadHandler.OnBeforeDownload(CefSharp.IWebBrowser,CefSharp.IBrowser,CefSharp.DownloadItem,CefSharp.IBeforeDownloadCallback)">
             <inheritdoc/>
         </member>
@@ -921,6 +929,17 @@
             <summary>
             Fluent DownloadHandler Builder
             </summary>
+        </member>
+        <member name="M:CefSharp.Fluent.DownloadHandlerBuilder.CanDownload(CefSharp.Fluent.CanDownloadDelegate)">
+            <summary>
+            See <see cref="M:CefSharp.IDownloadHandler.CanDownload(CefSharp.IWebBrowser,CefSharp.IBrowser,System.String,System.String)"/> for details.
+            </summary>
+            <param name="action">Action to be executed when <see cref="M:CefSharp.IDownloadHandler.CanDownload(CefSharp.IWebBrowser,CefSharp.IBrowser,System.String,System.String)"/>
+            is called</param>
+            <returns>
+            Fluent Builder, call <see cref="M:CefSharp.Fluent.DownloadHandlerBuilder.Build"/> to create
+            a new <see cref="T:CefSharp.IDownloadHandler"/> instance
+            </returns>
         </member>
         <member name="M:CefSharp.Fluent.DownloadHandlerBuilder.OnBeforeDownload(CefSharp.Fluent.OnBeforeDownloadDelegate)">
             <summary>
@@ -1731,6 +1750,9 @@
             <inheritdoc/>
         </member>
         <member name="P:CefSharp.WindowInfo.WindowHandle">
+            <inheritdoc/>
+        </member>
+        <member name="P:CefSharp.WindowInfo.WindowName">
             <inheritdoc/>
         </member>
         <member name="M:CefSharp.WindowInfo.Dispose">
